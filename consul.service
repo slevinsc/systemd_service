@@ -1,0 +1,13 @@
+[Unit]
+Description=The consul 
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/var/run/consul.pid
+ExecStart=/usr/bin/consul agent -dev --data-dir=/data/basicTool/consul  -client=0.0.0.0 --ui
+ExecReload=/bin/kill -USR2 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+
