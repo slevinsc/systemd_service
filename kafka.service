@@ -1,0 +1,12 @@
+[Unit]
+Description=Kafka
+After=network.target zookeeper.service
+
+[Service]
+TimeoutStartSec=10min
+Type=simping
+ExecStart=/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties
+ExecStop=/usr/local/kafka/bin/kafka-server-stop.sh
+
+[Install]
+WantedBy=multi-user.target

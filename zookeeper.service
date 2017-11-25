@@ -1,0 +1,12 @@
+[Unit]
+Description=Zookeeper
+After=network.target
+
+[Service]
+TimeoutStartSec=10min
+Type=forking
+ExecStart=/usr/local/zookeeper/bin/zkServer.sh start
+ExecStop=/usr/local/zookeeper/bin/zkServer.sh stop
+
+[Install]
+WantedBy=multi-user.target
